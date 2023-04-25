@@ -1,0 +1,11 @@
+.flex-row-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-colum-even {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

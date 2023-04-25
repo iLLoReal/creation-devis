@@ -1,0 +1,93 @@
+html {
+    display: block;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.debug {
+    background-color: red;
+}
+
+.margin-5 {
+    margin: 5%;
+}
+
+.margin-left-5 {
+    margin-left: 5%;
+}
+
+.card {
+    border: 1px solid black;
+    padding: 1vw;
+}
+
+.full-space-card {
+    width: 95vw;
+    height: 100%;
+}
+
+.flex-row-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-colum-even {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.flex-row-centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-row-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.flex-row-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.flex-row-evenly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flex-column-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex-column-centered-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.full-space {
+    width: 100%;
+    height: 100%;
+}
+
+.padding-5px {
+    padding: 5px;
+}
+
+.text-justify {
+    text-align: center;
+}
+
+.n-breaks {
+    white-space: pre-line;
+}
