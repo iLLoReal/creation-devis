@@ -57,10 +57,15 @@ html {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .flex-row-evenly {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .flex-column-between {
@@ -88,6 +93,33 @@ html {
     text-align: center;
 }
 
+.align-items-centered {
+    align-items: center;
+}
+
 .n-breaks {
     white-space: pre-line;
+}
+
+.flex-row-evenly::before {
+    display: absolute;
+
+}
+
+.vertical-margin-1 {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.border-1 {
+    border: 1px solid black;
+}
+
+.table-separate {
+    border-collapse: separate;
+    border-spacing: 0 2vh;
+}
+
+.padding-bottom-10px {
+    padding-bottom: 10px;
 }

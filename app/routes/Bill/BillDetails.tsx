@@ -3,9 +3,6 @@ import { paymentDetails } from "~/types/global"
 export const MainDescription = ({ details, date = new Date() }: { details: paymentDetails, date?: Date }) => {
     return (
         <>
-            <p style={{ color: 'grey' }}>
-                {details.description}
-            </p>
             <p>
                 CLIENT {details.name}
             </p>
@@ -19,13 +16,22 @@ export const MainDescription = ({ details, date = new Date() }: { details: payme
     )
 }
 
-export const BillDetails = ({ details }: { details: paymentDetails }) => {
+type BillDetailsProps = {
+    details: paymentDetails,
+    description: string,
+    date: Date,
+}
+
+export const BillDetails = ({ details, description, date }: BillDetailsProps) => {
     const style = {
         container: "card flex-column-between flex-grow",
     }
     return (
         <div className={style.container}>
-            <MainDescription details={details} />
+            <p style={{ color: 'grey' }}>
+                {description}
+            </p>
+            <MainDescription details={details} date={date} />
         </div>
     )
 }

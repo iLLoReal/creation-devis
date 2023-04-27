@@ -6,6 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { Provider } from "react-redux";
+import { store } from "./state/store";
 
 export default function App() {
   return (
@@ -17,10 +19,12 @@ export default function App() {
         <Links />
       </head>
       <body>
+      <Provider store={store}>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        </Provider>
       </body>
     </html>
   );

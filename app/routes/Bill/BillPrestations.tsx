@@ -1,57 +1,15 @@
 import { useMemo } from "react";
-import { paginate, revisitedIsAddendSegmentNecessary } from "~/helpers/segments";
+import { paginate } from "~/helpers/segments";
 import { prestation } from "~/types/global";
 
 
-export const ReferenceTable = () => {
-    return (
-        <>
-            <h2>
-                Prestations
-            </h2>
-            <p>
-                Référence
-            </p>
-            <p>
-                Quantité
-            </p>
-            <p>
-                Prix à l'unité
-            </p>
-            <p>
-                Prix total
-            </p>
-        </>
-    )
-}
 
-export const Prestation = ({ prestation, currency }: { prestation: prestation, currency: string }) => {
-    const getPrice = (prestation: { quantity: number, unitPrice: number }) => {
-        return (prestation.quantity * prestation.unitPrice);
-    }
-    return (
-        <>
-            <h2>
-                {prestation.title}
-            </h2>
-            <p>
-                {prestation.ref}
-            </p>
-            <p>
-                {prestation.quantity}
-            </p>
-            <p>
-                {prestation.unitPrice}{currency}
-            </p>
-            <p>
-                {getPrice(prestation)}{currency}
-            </p>
-        </>
-    )
-}
+type TotalPriceProps = {
+    prestations: prestation[];
+    currency: string;
+};
 
-
-export const TotalPrice = ({ prestations, currency }: { prestations: prestation[], currency: string }) => {
+export const TotalPrice = ({ prestations, currency }: TotalPriceProps) => {
     type prestationTotal = { quantity: number, total: number };
     const totalPrestation: prestationTotal = prestations.reduce((total: prestationTotal, prestation: prestation) => ({
         quantity: total.quantity + prestation.quantity,
@@ -71,24 +29,59 @@ export const TotalPrice = ({ prestations, currency }: { prestations: prestation[
 }
 
 type BillPrestationsProps = {
-    prestationsSegment: prestation[];
+    prestations: prestation[];
     currency?: string;
 };
 
-export const BillPrestations = ({ prestationsSegment, currency = '€' }: BillPrestationsProps) => {
+export const BillPrestations = ({ prestations, currency = '€' }: BillPrestationsProps) => {
+    const style = {
+        container: "table table-separate vertical-margin-1 border-1 full-space",
+        container__itemTh: "table__th padding-bottom-10px",
+        container__itemTd: "table__td padding-bottom-10px",
+    }
+    const getPrice = (prestation: { quantity: number, unitPrice: number }) => {
+        return (prestation.quantity * prestation.unitPrice);
+    }
     return (
-        <>
-            {
-                prestationsSegment.map((prestation: prestation) =>
-                    <div key={prestation.ref}>
-                        <Prestation prestation={prestation} currency={currency} />
-                    </div>)
-            }
-        </>
+        <table className={style.container}>
+            <thead>
+                <tr >
+                    <th className={style.container__itemTh}>Prestations</th>
+                    <th className={style.container__itemTh}>Référence</th>
+                    <th className={style.container__itemTh}>Quantité</th>
+                    <th className={style.container__itemTh}>Prix à l'unité</th>
+                    <th className={style.container__itemTh}>Prix total</th>
+                </tr>
+            </thead>
+            <tbody style={{ textAlign: 'center' }}>
+                {prestations.map((prestation) =>
+                    <tr key={prestation.ref}>
+                        <td className={style.container__itemTd}>{prestation.title}</td>
+                        <td className={style.container__itemTd}>{prestation.ref}</td>
+                        <td className={style.container__itemTd}>{prestation.quantity}</td>
+                        <td className={style.container__itemTd}>{prestation.unitPrice}{currency}</td>
+                        <td className={style.container__itemTd}>{getPrice(prestation)}{currency}</td>
+                    </tr>
+                )}
+                <tr>
+                    <td className={style.container__itemTd} style={{ paddingBottom: '10px' }}>Total</td>
+                    <td className={style.container__itemTd} style={{ paddingBottom: '10px' }} colSpan={3}></td>
+                    <td className={style.container__itemTd} style={{ paddingBottom: '10px', textAlign: 'center' }}>
+                        <TotalPrice prestations={prestations} currency={currency} />
+                    </td>
+                </tr>
+            </tbody>
+        </table >
     )
 }
 
-export const TrailingSpace = ({ segmentKey, segmentLength, totalLength }: { segmentKey: number, segmentLength: number, totalLength: number }) => {
+type TrailingSpaceProps = {
+    segmentKey: number;
+    segmentLength: number;
+    totalLength: number;
+};
+
+export const TrailingSpace = ({ segmentKey, segmentLength, totalLength }: TrailingSpaceProps) => {
     const trailing = [];
 
     for (let i = 0; i < totalLength - segmentLength; i++) {
@@ -110,43 +103,25 @@ type BillPrestationsPaginateProps = {
 
 export const BillPrestationsPaginate = ({ prestations, currency = '€', pagination = 4 }: BillPrestationsPaginateProps) => {
     const style = {
-        container: "flex-row-evenly flex-grow card",
-        container__lastItem: "flex-column-centered-end",
+        container: "container flex-column-centered flex-grow flex-wrap card",
+        container__lastItem: "container__item--last-item flex-column-centered-end",
+        container__item: "container__item flex-row-evenly"
     }
 
     const paginatedData = useMemo<prestation[][]>(() => {
         return paginate(prestations, pagination);
     }, [prestations]);
-    const numberOfSegments = paginatedData.length;
 
     return (
-        <div>
-            {paginatedData.map((prestationsSegment, id) => {
-                return (
-                    <div key={id} className={style.container}>
-                        <div>
-                            <ReferenceTable />
-                        </div>
-                        <BillPrestations prestationsSegment={prestationsSegment} />
-                        <TrailingSpace
-                            segmentKey={id}
-                            segmentLength={prestationsSegment.length}
-                            totalLength={pagination}
-                        />
-                        {id === paginatedData.length - 1 && revisitedIsAddendSegmentNecessary(pagination, prestations.length) ?
-                            <div className={style.container__lastItem}>
-                                <TotalPrice prestations={prestations} currency={currency} />
-                            </div> : <></>
-                        }
+        <div className={style.container}>
+            {
+                paginatedData.map((data: prestation[], id: number) =>
+                    <div key={id} className={style.container__item}>
+                        <BillPrestations prestations={data} currency={currency} />
                     </div>
                 )
-            })}
-            {!revisitedIsAddendSegmentNecessary(pagination, prestations.length) &&
-                <div className={style.container}>
-                    <div className={style.container__lastItem}>
-                        <TotalPrice prestations={prestations} currency={currency} />
-                    </div>
-                </div>}
+            }
+
         </div>
     )
 

@@ -5,6 +5,14 @@ export type prestation = {
     unitPrice: number
 };
 
+export type bill = {
+    prestations: prestation[],
+    billNumber: string,
+    description: string,
+    emissionDate: Date,
+    paymentDetails: paymentDetails,
+}
+
 export type company = {
     name: string,
     siret: string,
@@ -14,7 +22,6 @@ export type company = {
 }
 
 export type paymentDetails = {
-    description: string,
     name: string,
     address: string,
     signatureDescription: string,
