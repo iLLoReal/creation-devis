@@ -1,19 +1,23 @@
-import { useSelector } from "react-redux"
-import { useAppDispatch } from "~/state/hooks"
-import { RootState } from "~/state/store"
+import { LoaderArgs, json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getFactures } from "~/db.server";
 import { bill } from "~/types/global";
 
-export default function FacturesIndexRoute() {
-    const bills = useSelector((state: RootState) => state.bills.bills);
+export async function loader() {
+    return (json(await getFactures()));
+}
 
+export default function FacturesIndexRoute() {
+    const data = useLoaderData<typeof loader>();
 
     return (
         <main>
-            {bills.map((bill: bill, id: number) =>
-                <div key={id}>
-                    <a href={`/factures/${id}`}>{bill.billNumber}</a>
-                </div>
-            )}
-        </main>
+            {data.bills.map((bill: bill) =>
+                <div key={bill.billNumber}>
+                    {bill.billNumber}
+                </div>)}
+        </main >
     )
 }

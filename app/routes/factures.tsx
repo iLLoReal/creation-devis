@@ -21,7 +21,7 @@ export const links: LinksFunction = () => {
         }
     ])
 }
-export default function Layout() {
+export default function Factures() {
     return (
         <main>
             <Links />

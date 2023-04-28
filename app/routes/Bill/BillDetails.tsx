@@ -1,6 +1,12 @@
 import { paymentDetails } from "~/types/global"
 
-export const MainDescription = ({ details, date = new Date() }: { details: paymentDetails, date?: Date }) => {
+type MainDescriptionProps = {
+    details: paymentDetails;
+    timestamp?: string;
+};
+
+export const MainDescription = ({ details, timestamp = (new Date()).toString() }: MainDescriptionProps) => {
+    const date = new Date(timestamp);
     return (
         <>
             <p>
@@ -19,10 +25,10 @@ export const MainDescription = ({ details, date = new Date() }: { details: payme
 type BillDetailsProps = {
     details: paymentDetails,
     description: string,
-    date: Date,
+    timestamp: string,
 }
 
-export const BillDetails = ({ details, description, date }: BillDetailsProps) => {
+export const BillDetails = ({ details, description, timestamp }: BillDetailsProps) => {
     const style = {
         container: "card flex-column-between flex-grow",
     }
@@ -31,7 +37,7 @@ export const BillDetails = ({ details, description, date }: BillDetailsProps) =>
             <p style={{ color: 'grey' }}>
                 {description}
             </p>
-            <MainDescription details={details} date={date} />
+            <MainDescription details={details} timestamp={timestamp} />
         </div>
     )
 }

@@ -9,7 +9,7 @@ export type bill = {
     prestations: prestation[],
     billNumber: string,
     description: string,
-    emissionDate: Date,
+    emissionDate: string,
     paymentDetails: paymentDetails,
 }
 
@@ -26,5 +26,5 @@ export type paymentDetails = {
     address: string,
     signatureDescription: string,
     mean: string,
-    type: string,
+    type: string[],
 }
