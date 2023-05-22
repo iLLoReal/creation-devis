@@ -122,6 +122,6 @@ Se référer au fichier de <a href="LICENSE">LICENSE</a> inclu dans ce repértoi
 
 Olivier Laffon - [@website](https://www.olivier-laffon.com) - olivier.laffon.dev@gmail.com
 
-Project Link: [https://github.com/iLLoReal/creation-devis](https://github.com/iLLoReal/creation-devis)
+Lien du projet: [https://github.com/iLLoReal/creation-devis](https://github.com/iLLoReal/creation-devis)
 
 <p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
