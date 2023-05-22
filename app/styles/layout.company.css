@@ -4,7 +4,7 @@
     justify-content: space-between;
 }
 
-.flex-colum-even {
+.flex-column-even {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

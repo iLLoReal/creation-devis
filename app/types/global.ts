@@ -28,3 +28,9 @@ export type paymentDetails = {
     mean: string,
     type: string[],
 }
+
+export type client = {
+    name: string,
+    address: string,
+    bills: string[];
+}

@@ -97,6 +97,10 @@ html {
     align-items: center;
 }
 
+.align-items-end {
+    align-items: end;
+}
+
 .n-breaks {
     white-space: pre-line;
 }

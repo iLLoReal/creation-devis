@@ -2,7 +2,6 @@ export const revisitedIsAddendSegmentNecessary = (pagination: number, length: nu
     return (length % pagination);
 }
 
-
 export const paginate = function <T>(items: T[], pagination: number,  addend: number = 0) {
     const pageNumber = Math.round(((items.length + addend) / pagination));
     const segments = [];
@@ -13,6 +12,3 @@ export const paginate = function <T>(items: T[], pagination: number,  addend: nu
     return segments;
 }
 
-export const swap = (arr: Array<any>, indexOne: number, indexTwo: number) => {
-    
-}

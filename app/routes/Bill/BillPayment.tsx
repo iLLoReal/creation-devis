@@ -11,14 +11,16 @@ export const PaymentType = ({ mean }: { mean: string }) => {
     )
 }
 
-export const Conditions = ({ type }: { type: string }) => {
+export const Conditions = ({ textLines }: { textLines: string[] }) => {
     return (
         <>
             <h1>
                 CONDITIONS
             </h1>
             <p>
-                {type}
+                {textLines.map((textLine: string, id: number) => {
+                    return (<p id={"cond/" + id}>{textLine}</p>)
+                })}
             </p>
         </>
     )
@@ -46,7 +48,7 @@ export const BillPayment = ({ payment }: { payment: paymentDetails }) => {
     return (
         <div className={style.container}>
             <PaymentType mean={payment.mean} />
-            <Conditions type={payment.type} />
+            <Conditions textLines={payment.type} />
             <div className={style.container__shiftedItem}>
                 <MainSignature description={payment.signatureDescription} />
             </div>
