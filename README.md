@@ -62,7 +62,7 @@ Un simple CRUD de devis/factures, avec gestion de compte.
 ### Prérequis
 
 - [npm](https://npmjs.com/)
-- [ClI Netlify](https://www.netlify.com/products/dev/)
+- [CLI Netlify](https://www.netlify.com/products/dev/)
 
 Pour tester le projet en local, vous n'avez pas besoin de netlify.
 Vous pouvez simplement suivre les étapes de la section Installation puis Usage. Pour plus de détails sur l'installation et la configuration de netlify, se référer à [cette documentation](RemixREADME.md/#netlify-setup)
