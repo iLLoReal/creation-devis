@@ -70,7 +70,7 @@ Vous pouvez simplement suivre les étapes de la section Installation puis Usage.
 ### Installation
 
 ```sh
-cd <dev folder>
+cd dossier-de-dev
 git clone https://github.com/iLLoReal/creation-devis
 npm install
 ```
