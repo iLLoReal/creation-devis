@@ -31,7 +31,7 @@
             "description": "Maintenance et intégration",
             "emissionDate": "2023-04-27T08:35:12.170Z",
             "paymentDetails": {
-                "name": "Toto",
+                "name": "Client2",
                 "address": "Addresse de facturation",
                 "signatureDescription": "Datée et précédée de la mention \"Bon pour accord\"",
                 "mean": "Carte bancaire",

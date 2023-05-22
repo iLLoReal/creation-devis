@@ -33,7 +33,7 @@ export const getFactureById = async (id: number) => {
     return (bills[id]);
 }
 
-export const login = async ({ login, password }: { login: FormDataEntryValue; password: FormDataEntryValue }) => {
+export const login = async ({ login, password }: { login: string; password: string}) => {
     const user = users.find((user: { login: string; password: string }) => user.login === login)
 
     return user?.password === password; // encrypt/decrypt
