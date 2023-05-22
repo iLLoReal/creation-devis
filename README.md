@@ -3,19 +3,19 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center">E-commerce website</h3>
+  <h3 align="center">Création de devis</h3>
   <p align="center">
-    A Simple e-commerce website
+    Création de devis
     <br />
   </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Table des matières</summary>
   <ol>
     <li>
-      <a href="#about-the-project">A propos du projet</a>
+      <a href="#a-propos-du-projet">A propos du projet</a>
       <ul>
         <li><a href="#description">Description</a></li>
         <li><a href="#stack">Stack</a></li>
@@ -24,7 +24,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prérequis</a></li>
+        <li><a href="#prérequis">Prérequis</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -38,7 +38,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About the project
+## A propos du projet
 
 ### Description
 
@@ -47,19 +47,19 @@ Un simple CRUD de devis/factures, avec gestion de compte.
 
 ### Stack
 
-- [React] 
-- [Remix]
-- [TypeScript]
-- [Prisma]
-- [Postgresql]
+- [React](https://react.dev/) 
+- [Remix](https://remix.run/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Prisma](https://www.prisma.io/)
+- [Postgresql](https://www.postgresql.org/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Prerequisites
+### Prérequis
 
 - [npm](https://npmjs.com/)
 - [ClI Netlify](https://www.netlify.com/products/dev/)
@@ -75,7 +75,7 @@ git clone https://github.com/iLLoReal/creation-devis
 npm install
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
@@ -93,7 +93,7 @@ netlify dev
 
 [Prod](RemixREADME.md/#deployment)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -107,15 +107,15 @@ netlify dev
 - [ ] BDD
 - [ ] Déploiement
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
 
 
 <!-- LICENSE -->
 ## License
 
-Refer to the <a href="LICENSE">LICENSE</a> file included in this repository.
+Se référer au fichier de <a href="LICENSE">LICENSE</a> inclu dans ce repértoire.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
@@ -124,4 +124,4 @@ Olivier Laffon - [@website](https://www.olivier-laffon.com) - olivier.laffon.dev
 
 Project Link: [https://github.com/iLLoReal/creation-devis](https://github.com/iLLoReal/creation-devis)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Revenir au départ</a>)</p>
