@@ -7,6 +7,7 @@ type MainDescriptionProps = {
 
 export const MainDescription = ({ details, timestamp = (new Date()).toString() }: MainDescriptionProps) => {
     const date = new Date(timestamp);
+    console.log(details);
     return (
         <>
             <p>

@@ -55,7 +55,7 @@ export const BillPrestations = ({ prestations, currency = '€' }: BillPrestatio
             </thead>
             <tbody style={{ textAlign: 'center' }}>
                 {prestations.map((prestation) =>
-                    <tr key={prestation.ref}>
+                    <tr key={'prestation/'+prestation.ref}>
                         <td className={style.container__itemTd}>{prestation.title}</td>
                         <td className={style.container__itemTd}>{prestation.ref}</td>
                         <td className={style.container__itemTd}>{prestation.quantity}</td>

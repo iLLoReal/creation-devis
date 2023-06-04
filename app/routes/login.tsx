@@ -1,13 +1,13 @@
 import { ActionArgs, LoaderArgs, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import { isUserLoggedIn, logUserIn } from "~/helpers/session";
-import { commitSession, getSession } from "~/session";
+import { commitSession } from "~/session";
 
 export async function action({ request }: ActionArgs) {
     const authResponse = await logUserIn(request);
 
     if (authResponse.loggedIn) {
-        return redirect('/profile', {
+        return redirect('/companies/', {
             headers: {
                 "Set-Cookie": await commitSession(authResponse.session)
             }
@@ -18,7 +18,7 @@ export async function action({ request }: ActionArgs) {
 
 export async function loader({ request }: LoaderArgs) {
     const loggedIn = await isUserLoggedIn(request);
-    return loggedIn ? redirect('/profile') : new Response('Please log in');
+    return loggedIn ? redirect('/companies/') : new Response('Please log in');
 }
 
 export default function Login() {

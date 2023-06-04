@@ -21,7 +21,7 @@ export const links: LinksFunction = () => {
         }
     ])
 }
-export default function Factures() {
+export default function CompaniesCompanyRouteDevis() {
     return (
         <main>
             <Links />

@@ -1,6 +1,7 @@
 import { paymentDetails } from "~/types/global"
 
 export const PaymentType = ({ mean }: { mean: string }) => {
+    console.log('PaymentType, mean:', mean);
     return (
         <>
             <h1>PAIEMENT</h1>
@@ -19,7 +20,7 @@ export const Conditions = ({ textLines }: { textLines: string[] }) => {
             </h1>
             <p>
                 {textLines.map((textLine: string, id: number) => {
-                    return (<p id={"cond/" + id}>{textLine}</p>)
+                    return (<p key={"cond/" + id}>{textLine}</p>)
                 })}
             </p>
         </>

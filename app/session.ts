@@ -1,7 +1,12 @@
 import { createCookieSessionStorage } from "@remix-run/node";
+import { company } from "./types/global";
 
 export type SessionData = {
   loggedIn: boolean;
+  currentCompany: company;
+  user: {
+    login: string,
+  };
 };
 
 export type SessionFlashData = {

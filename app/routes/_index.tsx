@@ -7,11 +7,7 @@ export async function loader({ request }: LoaderArgs) {
   if (!await isUserLoggedIn(request)) {
     return redirect("/login/");
   }
-  return redirect("/profile") ;
-}
-
-export const action = async ({ request }: ActionArgs) => {
-  return null;
+  return redirect("/companies/");
 }
 
 export const meta: V2_MetaFunction = () => {
@@ -19,15 +15,8 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
-
   return (
-    <div className="flex-centered-column">
-      <h1>
-        Bienvenue
-        <Link to="/factures/">
-          Mes factures
-        </Link>
-      </h1>
-    </div>
+    <>
+    </>
   );
 }
